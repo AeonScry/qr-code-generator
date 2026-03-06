@@ -1,3 +1,6 @@
+## Github Page
+[qr-generator](https://aeonscry.github.io/qr-code-generator/)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
