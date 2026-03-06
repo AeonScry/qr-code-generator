@@ -172,10 +172,7 @@ export default function Home() {
             placeItems: "center",
             borderRadius: 16,
             border: "1px solid #e2e8f0",
-            background:
-              "linear-gradient(45deg, rgba(0,0,0,0.07) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.07) 75%) 0 0 / 20px 20px," +
-              "linear-gradient(45deg, rgba(0,0,0,0.07) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.07) 75%) 10px 10px / 20px 20px," +
-              "#f8fafc",
+            background: "#ffffff",   // solid white
             padding: 14,
             width: Math.min(size + 40, 820),
           }}
