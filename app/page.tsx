@@ -95,32 +95,26 @@ export default function Home() {
   }
 
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui", background: "#ffffff", minHeight: "100vh" }}>
-      <div style={{ fontSize: 24, fontWeight: 900 }}>QR Code Generator</div>
+    <main className="p-6 font-sans bg-white min-h-screen">
+      <div className="text-2xl font-black">QR Code Generator</div>
 
-      <div style={{ marginTop: 24, maxWidth: 800, display: "grid", gap: 16 }}>
-        <div style={{ padding: 14, border: "1px solid #e2e8f0", borderRadius: 14, background: "#f8fafc" }}>
-          <div style={{ fontWeight: 900, marginBottom: 8 }}>Text or URL</div>
+      <div className="mt-6 max-w-2xl grid gap-4">
+        <div className="p-3.5 border border-slate-200 rounded-2xl bg-slate-50">
+          <div className="font-black mb-2">Text or URL</div>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            style={{
-              width: "100%",
-              padding: 12,
-              borderRadius: 12,
-              border: "1px solid #e2e8f0",
-              fontSize: 16,
-            }}
+            className="w-full p-3 rounded-xl border border-slate-200 text-base"
           />
           {normalized.value && normalized.value !== input.trim() && (
-            <div style={{ marginTop: 8, fontSize: 14, color: "#475569" }}>
+            <div className="mt-2 text-sm text-slate-600">
               Using: {normalized.value}
             </div>
           )}
         </div>
 
-        <div style={{ padding: 14, border: "1px solid #e2e8f0", borderRadius: 14, background: "#f8fafc" }}>
-          <div style={{ fontWeight: 900, marginBottom: 8 }}>Size</div>
+        <div className="p-3.5 border border-slate-200 rounded-2xl bg-slate-50">
+          <div className="font-black mb-2">Size</div>
           <input
             type="range"
             min={128}
@@ -128,21 +122,15 @@ export default function Home() {
             step={16}
             value={size}
             onChange={(e) => setSize(Number(e.target.value))}
+            className="w-full"
           />
-          <div style={{ marginTop: 8 }}>{size}px</div>
+          <div className="mt-2">{size}px</div>
         </div>
 
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div className="flex gap-3 items-center">
           <button
             onClick={generate}
-            style={{
-              padding: "10px 14px",
-              borderRadius: 12,
-              border: "1px solid #e2e8f0",
-              background: "#ffffff",
-              fontWeight: 900,
-              cursor: "pointer",
-            }}
+            className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white font-black cursor-pointer"
           >
             Generate
           </button>
@@ -150,38 +138,23 @@ export default function Home() {
           <button
             onClick={download}
             disabled={!dataUrl}
-            style={{
-              padding: "10px 14px",
-              borderRadius: 12,
-              border: "1px solid #e2e8f0",
-              background: "#ffffff",
-              fontWeight: 900,
-              cursor: dataUrl ? "pointer" : "not-allowed",
-              opacity: dataUrl ? 1 : 0.5,
-            }}
+            className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white font-black cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
           >
             Download PNG
           </button>
 
-          <span style={{ fontSize: 14, color: "#475569" }}>{status}</span>
+          <span className="text-sm text-slate-600">{status}</span>
         </div>
 
         <div
-          style={{
-            display: "grid",
-            placeItems: "center",
-            borderRadius: 16,
-            border: "1px solid #e2e8f0",
-            background: "#ffffff",   // solid white
-            padding: 14,
-            width: Math.min(size + 40, 820),
-          }}
+          className="grid place-items-center rounded-2xl border border-slate-200 bg-white p-3.5"
+          style={{ width: Math.min(size + 40, 820) }}
         >
-          <canvas ref={canvasRef} width={size} height={size} style={{ display: "none" }} />
+          <canvas ref={canvasRef} width={size} height={size} className="hidden" />
           {dataUrl ? (
             <img src={dataUrl} alt="QR code" width={size} height={size} />
           ) : (
-            <div style={{ color: "#475569" }}>No QR generated yet</div>
+            <div className="text-slate-600">No QR generated yet</div>
           )}
         </div>
       </div>
