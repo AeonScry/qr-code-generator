@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
 const repo = "qr-code-generator"; // <-- change this
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
-  output: "export",
-  basePath: `/${repo}`,
-  assetPrefix: `/${repo}/`,
+  ...(isProd && {
+    output: "export",
+    basePath: `/${repo}`,
+    assetPrefix: `/${repo}/`,
+  }),
 };
 
-module.exports = nextConfig;
+export default nextConfig;
