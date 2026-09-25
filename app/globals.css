@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --surface: #f8fafc;
+  --surface-raised: #ffffff;
+  --border: #cbd5e1;
+  --muted: #475569;
 }
 
 @theme inline {
@@ -16,6 +20,10 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --surface: #171717;
+    --surface-raised: #262626;
+    --border: #525252;
+    --muted: #cbd5e1;
   }
 }
 
@@ -24,3 +32,16 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.app-page { background: var(--background); color: var(--foreground); }
+.app-tabs { background: var(--surface); border: 1px solid var(--border); }
+.app-tab { background: transparent; border: 0; color: var(--muted); }
+.app-tab.active { background: var(--surface-raised); box-shadow: 0 1px 3px rgb(0 0 0 / 18%); color: var(--foreground); }
+.theme-panel { background: var(--surface); border-color: var(--border); }
+.theme-input { background: var(--surface-raised); border-color: var(--border); color: var(--foreground); }
+.theme-input::placeholder { color: var(--muted); opacity: .8; }
+.theme-input:focus { border-color: var(--foreground); outline: 2px solid color-mix(in srgb, var(--foreground) 25%, transparent); outline-offset: 1px; }
+.theme-button { background: var(--surface-raised); border-color: var(--border); color: var(--foreground); }
+.theme-button:hover:not(:disabled) { background: var(--surface); }
+.theme-preview { background: var(--surface-raised); border-color: var(--border); }
+.theme-muted { color: var(--muted); }
